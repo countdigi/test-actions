@@ -16,9 +16,9 @@ jobs:
 
       - run: echo ${GITHUB_SHA:0:10}
 
-      - run: docker build countdigi/snptk .
+      - run: docker build -t ${{ secrets.DOCKER_USER }}/snptk .
 
-      - run: docker run countdigi/snptk snptk --help
+      - run: docker run ${{ secrets.DOCKER_USER}}/snptk snptk --help
 
       - run: |
           docker tag ${{ secrets.DOCKER_USER }}/snptk ${{ secrets.DOCKER_USER }}/snptk:${GITHUB_SHA:0:10}
