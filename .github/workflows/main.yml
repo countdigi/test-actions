@@ -12,5 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - run: echo ${GITHUB_SHA:0:10}
     - run: docker build -t countdigi/snptk:${GITHUB_SHA:0:10} .
-    - run: docker run countdigi/snptk snptk --help
+    - run: docker run countdigi/snptk:${GITHUB_SHA:0:10} snptk --help
