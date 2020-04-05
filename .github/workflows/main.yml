@@ -14,6 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - env:
+          DOCKER_USER: "${{ secrets.DOCKER_USER }}"
+
+      - run: echo DOCKER_USER=$DOCKER_USER
+
       - run: echo ${GITHUB_SHA:0:10}
 
       - run: docker build -t ${{ secrets.DOCKER_USER }}/snptk .
