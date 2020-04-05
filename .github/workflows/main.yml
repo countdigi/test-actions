@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker build -t countdigi/snptk:${GITHUB_SHA:0:10} .
-    - run: docker run -it countdigi/snptk snptk --help
+    - run: docker run countdigi/snptk snptk --help
