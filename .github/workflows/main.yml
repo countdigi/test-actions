@@ -7,15 +7,15 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  DOCKER_USER: "${{ secrets.DOCKER_USER }}"
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
-      - env:
-          DOCKER_USER: "${{ secrets.DOCKER_USER }}"
 
       - run: echo DOCKER_USER=$DOCKER_USER
 
