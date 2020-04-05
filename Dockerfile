@@ -4,6 +4,8 @@ RUN /bin/mkdir /app
 
 COPY . /app
 
-RUN python /app/setup.py install
+WORKDIR /app
+
+RUN python ./setup.py install
 
 CMD ["snptk"]
